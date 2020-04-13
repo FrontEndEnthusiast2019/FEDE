@@ -10,13 +10,13 @@ const sourcemaps                           = require('gulp-sourcemaps');
 const uglify                               = require('gulp-uglify');
 const browserSync                          = require('browser-sync').create();
 //const gulpNunjucks                       = require('gulp-nunjucks');
-//const nunjucks                             = require('nunjucks');
+const nunjucks                             = require('nunjucks');
 
 // File path variables
 const files = {
   sassPath: 'app/sass/**/*.scss',
   jsPath:   'app/js/**/*.js',
-  //njkPath:  'app/templates/**/*.njk',
+  njkPath:  'app/templates/**/*.njk',
 }
 
 // Sass task
@@ -39,12 +39,12 @@ function jsTask(){
 }
 
 // Html template engine task
-/*function njkTask(){
+function njkTask(){
   return src(files.njkPath)
     .pipe(nunjucks.configure(files.njkPath, {autoescape: true}))
     .pipe(nunjucks.render('layout.njk', {website: 'website'}))
     .pipe(dest('public'))
-};*/
+};
 
 // Cachebusting task
 const cbString = new Date().getTime();
@@ -62,13 +62,13 @@ function watchTask(){
     }
   });
 
-  watch([files.sassPath, files.jsPath, /*files.njkPath*/],
-    parallel(sassTask, jsTask, /*njkTask*/));
+  watch([files.sassPath, files.jsPath, files.njkPath],
+    parallel(sassTask, jsTask, njkTask));
 }
 
 // Default task runner
 exports.default = series(
-  parallel(sassTask, jsTask, /*njkTask*/),
+  parallel(sassTask, jsTask, njkTask),
   cacheBustTask,
   watchTask
 );

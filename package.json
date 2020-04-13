@@ -1,0 +1,35 @@
+{
+  "name": "frontend_dev_env",
+  "version": "1.0.0",
+  "description": "frontend development environment for future projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "Hello FEDE"
+  },
+  "keywords": [
+    "front",
+    "end",
+    "development",
+    "environment",
+    "future",
+    "projects"
+  ],
+  "author": "Curtis A.K. Stainer",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-nunjucks": "^5.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.1"
+  }
+}
