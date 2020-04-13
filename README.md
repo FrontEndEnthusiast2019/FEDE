@@ -1,2 +1,2 @@
 # FEDE
-For workflow using gulp, sass, njk.
+Development workflow using gulp, sass, njk.
