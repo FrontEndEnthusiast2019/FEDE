@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA,KACI,qBAAsB,CAG1B,EACI,QAAS,CACT,SAAU,CACV,kBAAmB,CACnB,wBAA2B,CAC3B,UAAY","file":"main.css","sourcesContent":["html{\n    box-sizing: border-box;\n}\n\n*{\n    margin: 0;\n    padding: 0;\n    box-sizing: inherit;\n    background-color: lightpink;\n    color: black;\n}"]}
