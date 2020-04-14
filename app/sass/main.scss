@@ -1,5 +1,5 @@
 html    {
-    background-color: gainsboro;
+    background-color: gold;
     display: flex;
     justify-content: center;
 }
@@ -8,11 +8,13 @@ html    {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
     font-weight: bold;
+    color: black;
 }
 
 p, span, ul, ol, li, a {

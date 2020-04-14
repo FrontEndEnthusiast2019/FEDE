@@ -23,5 +23,7 @@
         within your project directory each time (sadly).</li>
     </ol>
 
+    <p>100% now working, but still do not forget about the .nunjucks bug.</p>
+
     {% include "partials/footer.nunjucks" %}
 {% endblock %}

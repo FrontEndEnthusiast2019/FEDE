@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Curtis Stainer | Portfolio</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css?cb=1234">
   </head>
   <body>
     <!-- You write code for this content block in another file -->
@@ -13,6 +13,6 @@
     </div>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js?cb=1234"></script>
   </body>
 </html>
