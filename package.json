@@ -1,18 +1,14 @@
 {
-  "name": "frontend_dev_env",
+  "name": "my_portfolio",
   "version": "1.0.0",
-  "description": "frontend development environment for future projects",
+  "description": "An FEDE for my professional portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "Hello FEDE"
+    "test": "Hello Portfolio"
   },
   "keywords": [
-    "front",
-    "end",
-    "development",
-    "environment",
-    "future",
-    "projects"
+    "Portfolio",
+    "FEDE"
   ],
   "author": "Curtis A.K. Stainer",
   "license": "ISC",
@@ -22,14 +18,11 @@
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-nunjucks": "^5.0.1",
+    "gulp-nunjucks-render": "^2.2.3",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2"
-  },
-  "dependencies": {
-    "nunjucks": "^3.2.1"
   }
 }

@@ -1,20 +1,8 @@
-<!-- layout.nunjucks -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Curtis Stainer | Portfolio</title>
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
-    <!-- You write code for this content block in another file -->
-    <div class="index-container">
-      
-    <section>
-    <header>
-        <h1>A nunjucks, sass, js, and gulp based FEDE</h1>
-    </header>
-</section>
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% block index %}
+    {% include "partials/header.nunjucks" %}
 
     <h1>A continuing project 14th april 2020</h1>
 
@@ -35,20 +23,5 @@
         within your project directory each time (sadly).</li>
     </ol>
 
-    <section>
-    <footer>
-       <div>
-            <p>Made by user</p>
-       </div>
-       <div>
-            <p>All rights reserved</p>
-       </div>
-    </footer>
-</section>
-
-    </div>
-
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="main.js"></script>
-  </body>
-</html>
+    {% include "partials/footer.nunjucks" %}
+{% endblock %}

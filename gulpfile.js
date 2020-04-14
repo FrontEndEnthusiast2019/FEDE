@@ -1,25 +1,32 @@
 // Initalisation of our node modules
 const {src, dest, watch, series, parallel} = require('gulp');
+const nunjucksRender                       = require('gulp-nunjucks-render');
+const sass                                 = require('gulp-sass');
+const browserSync                          = require('browser-sync').create();
 const autoprefixer                         = require('autoprefixer');
 const cssnano                              = require('cssnano');
 const concat                               = require('gulp-concat');
 const postcss                              = require('gulp-postcss');
-const replace                              = require('gulp-replace');
-const sass                                 = require('gulp-sass');
+//const replace                            = require('gulp-replace');
 const sourcemaps                           = require('gulp-sourcemaps');
 const uglify                               = require('gulp-uglify');
-const browserSync                          = require('browser-sync').create();
-//const gulpNunjucks                       = require('gulp-nunjucks');
-const nunjucks                             = require('nunjucks');
+// for nunjucks data render install gulp-data
 
 // File path variables
 const files = {
+  njkPath:  'app/pages/**/*.+(html|nunjucks)',
   sassPath: 'app/sass/**/*.scss',
   jsPath:   'app/js/**/*.js',
-  njkPath:  'app/templates/**/*.njk',
 }
 
-// Sass task
+// Njk Task: njk's task function for compiling njk to html.
+function njkTask(){
+  return src(files.njkPath)
+    .pipe(nunjucksRender({path:['app/templates']}))
+    .pipe(dest('public'));
+}
+
+// Sass Task
 function sassTask(){
   return src(files.sassPath)
     .pipe(sourcemaps.init())
@@ -30,45 +37,29 @@ function sassTask(){
     .pipe(browserSync.stream());
 }
 
-// Js task
+// Js Task: js to main.js Task
 function jsTask(){
   return src(files.jsPath)
-    .pipe(concat('all.js'))
+    .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(dest('public'));
 }
+// cachebusting function??????????????
 
-// Html template engine task
-function njkTask(){
-  return src(files.njkPath)
-    .pipe(nunjucks.configure(files.njkPath, {autoescape: true}))
-    .pipe(nunjucks.render('layout.njk', {website: 'website'}))
-    .pipe(dest('public'))
-};
-
-// Cachebusting task
-const cbString = new Date().getTime();
-function cacheBustTask(){
-  return src(['index.html'])
-    .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
-    .pipe(dest('public'));
-} 
-
-// Watch task
+// Watch Task: for automation
 function watchTask(){
   browserSync.init({
-    server:{
+    server: {
       baseDir: 'public'
     }
   });
 
-  watch([files.sassPath, files.jsPath, files.njkPath],
-    parallel(sassTask, jsTask, njkTask));
+  watch([files.njkPath, files.sassPath, files.jsPath]).on('change', browserSync.reload), 
+    parallel(njkTask, sassTask, jsTask);
 }
 
-// Default task runner
+// Default Task Runner: for automation
 exports.default = series(
-  parallel(sassTask, jsTask, njkTask),
-  cacheBustTask,
+  parallel(njkTask, sassTask, jsTask),
   watchTask
 );

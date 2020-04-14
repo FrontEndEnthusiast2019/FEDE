@@ -1,1 +1,0 @@
-This base directory is for a frontend development environment to be reused time and time again as seen and for addition of technologies both the web and software related.
